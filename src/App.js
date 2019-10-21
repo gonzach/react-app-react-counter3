@@ -5,17 +5,17 @@ import CounterGroup from './CounterGroup/counterGroup';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {number: 0};
+    this.state = {counterAmount: 0};
   }
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <CounterGroup buttonApi={this.state}/>
+          <CounterGroup defaultCounts={3}/>
         </header>
       </div>
     );
   }
 }
+
 export default App;

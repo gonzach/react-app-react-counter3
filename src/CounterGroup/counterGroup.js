@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './counterGroup.css';
-import Counter from './counter/counter';
+import Counter from '../Counter/counter';
 
-class CounterGroup extends Component {
+class CounterGroup extends React.Component {
     constructor(props){
         super(props);
         
@@ -13,7 +13,7 @@ class CounterGroup extends Component {
         }
     }
 
-    counterUpdateCallback = () => {
+    counterUpdateCallback = changeNum => {
         this.setState({ sum:this.state.sum + changeNum})
     };
 
@@ -31,7 +31,7 @@ class CounterGroup extends Component {
             counters.push(
                 <Counter 
                     key={count}
-                    onCounterValueCahnge = {this.counterUpdateCallback}
+                    onCounterValueChange = {this.counterUpdateCallback}
                 />
             )
         }
@@ -39,13 +39,13 @@ class CounterGroup extends Component {
     };
 
     render() {
-        let counters  = this.rendersCounters();
+        let counters  = this.renderCounter();
         return (
         <div className = "counter-group">
             <div className="regenerate">
                 <input type="text" value={this.state.inputValue} 
-                                   onchange={this.handleInputChange}/>
-                <button onClick={this.regenerateCounters}>Renegerate Counters</button>
+                                   onChange={this.handleInputChange}/>
+                <button onClick={this.regenerateCounter}>Renegerate Counters</button>
                 <span>Sum: {this.state.sum}</span>   
             </div>
             <div>
